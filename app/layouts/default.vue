@@ -6,11 +6,12 @@
                     <v-app-bar-title>
                         Home
                     </v-app-bar-title>
-                     <Nuxt/>
                 </v-app-bar>
+                <v-container justify = "center" align = "center">
+                    <Nuxt/>
+                </v-container>
             </v-main>
         </v-app>
-       
     </div>
 </template>
 
