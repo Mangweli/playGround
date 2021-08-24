@@ -1,11 +1,9 @@
-const state = () => ({
+export const state = () => ({
     data: []
 })
 
-const mutations = {
+export const mutations = {
     storeData: (state, data) => {
         state.data = data;
     }
 }
-
-export { state, mutations };
