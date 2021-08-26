@@ -1,4 +1,5 @@
 <template>
+
   <v-data-table
     :headers="headers"
     :items="users"
@@ -33,16 +34,17 @@ export default {
     },
     computed: {
       users() {
+        console.log(this.$store.state.users);
         return this.$store.state.users.data;
       }
     },
     async fetch() {
-      this.$store.commit("users/storeData", (await this.$axios.get('http://localhost:8888/users')).data)
+      this.$store.commit("users/storeData", (await this.$axios.get('http://localhost:8888/users/')).data)
     },
     methods: {
       async deleteItem(id) {
-        await this.$axios.delete(`https://localhost:8888/users/${id}`);
-        this.$store.commit("users/storeData", (await this.$axios.get('https://localhost:8888/users')).data)
+        await this.$axios.delete(`http://localhost:8888/users/${id}`);
+        this.$store.commit("users/storeData", (await this.$axios.get('http://localhost:8888/users/')).data)
       },
       async editItem(user) {
         this.$store.commit("user/storeID", user.id);
